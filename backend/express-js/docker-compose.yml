@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  node-app:
+    build: .
+    image: node-app
+    network_mode: host
+    # ports:
+    #   - '8080:8080'
+    depends_on:
+      - mongodb
+      - minio
+    volumes:
+      - .:/usr/src/node-app
+    # networks:
+    #   - node-network
+
+  mongodb:
+    image: mongo:4.2.1-bionic
+    network_mode: host
+    # ports:
+    #   - '27017:27017'
+    volumes:
+      - dbdata:/data/db
+    # networks:
+    #   - node-network
+
+  minio:
+    image: minio/minio
+    network_mode: host
+    # ports:
+    #   - '9000:9000'
+    #   - '9001:9001'
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    # networks:
+    #   - node-network
+
+volumes:
+  dbdata:
+  minio_data:
+
+# networks:
+#   node-network:
+#     driver: bridge

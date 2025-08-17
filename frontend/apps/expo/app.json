@@ -1,0 +1,71 @@
+{
+  "expo": {
+    "name": "App Launch Kit",
+    "slug": "app-launch-kit",
+    "owner": "applaunchkit-org",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.applaunchkit.demo",
+      "supportsTablet": true,
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "android": {
+      "package": "com.applaunchkit.demo",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "locales": {
+      "en": "./locales/en.json",
+      "fr": "./locales/fr.json"
+    },
+    "plugins": [
+      ["@react-native-firebase/app"],
+      ["@react-native-firebase/auth"],
+      ["@react-native-google-signin/google-signin"],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      ["expo-router"],
+      ["expo-localization"]
+    ],
+    "extra": {
+      "supportsRTL": true,
+      "eas": {
+        "projectId": "a38b0c54-4bd7-46af-a029-9b97b9689d03"
+      }
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "updates": {
+      "url": ""
+    },
+    "runtimeVersion": "1.0.0"
+  }
+}
